@@ -1,14 +1,14 @@
-import './App.css'
+//import './App.css'
+import PropTypes from "prop-types"
 
 
-
-function Card(props) {
+function Card(fish) {
     
     return (
     <>
         <figure className="App">
             {
-                props.fish.imgSrc ? (<img className="card-image" src={props.fish.imgSrc} alt={props.fish.name} /> ): (<p>Désolé pas d'image</p>)
+                fish.imgSrc ? (<img className="card-image" src={fish.imgSrc} alt={fish.name} /> ): (<p>Désolé pas d'image</p>)
             }
             
         </figure>
@@ -16,20 +16,30 @@ function Card(props) {
         <div className="card-body">
 
             <div className="card-title">
-                <h2>{props.fish.title}</h2>
+                <h2>{fish.title}</h2>
             </div>
 
             <div className="card-name">
-                <h3>{props.fish.name}</h3>
+                <h3>{fish.name}</h3>
             </div>
 
             <div className="card-excerpt">
-                <p>{props.fish.description}</p>
+                <p>{fish.description}</p>
             </div>
 
         </div>
     </>
     );
 }
+
+Card.propTypes ={
+    fish: PropTypes.shape({
+        imgSrc: PropTypes.string,
+        title: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        description: PropTypes.string.isRequired,
+    }).isRequired,
+}
+
 
 export default Card;
