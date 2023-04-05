@@ -19,3 +19,5 @@ const NavBar = ({fishIndex,setFishIndex,fishLength}) => {
       </div>
       );
 };
+
+export default NavBar;
